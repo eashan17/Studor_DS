@@ -1,0 +1,121 @@
+{
+  "holdout_n": 725,
+  "k": 3,
+  "best_alpha": 0.0,
+  "alpha_curve": {
+    "0.0": {
+      "n": 725,
+      "precision@k": 0.175632183908046,
+      "recall@k": 0.526896551724138,
+      "hit_rate@k": 0.526896551724138,
+      "success_weighted_precision@k": 0.0910344827586207,
+      "coverage@k": 1.0,
+      "k": 3
+    },
+    "0.1": {
+      "n": 725,
+      "precision@k": 0.15356321839080458,
+      "recall@k": 0.4606896551724138,
+      "hit_rate@k": 0.4606896551724138,
+      "success_weighted_precision@k": 0.07862068965517241,
+      "coverage@k": 1.0,
+      "k": 3
+    },
+    "0.2": {
+      "n": 725,
+      "precision@k": 0.14114942528735633,
+      "recall@k": 0.42344827586206896,
+      "hit_rate@k": 0.42344827586206896,
+      "success_weighted_precision@k": 0.07172413793103448,
+      "coverage@k": 1.0,
+      "k": 3
+    },
+    "0.3": {
+      "n": 725,
+      "precision@k": 0.1296551724137931,
+      "recall@k": 0.3889655172413793,
+      "hit_rate@k": 0.3889655172413793,
+      "success_weighted_precision@k": 0.06712643678160919,
+      "coverage@k": 1.0,
+      "k": 3
+    },
+    "0.5": {
+      "n": 725,
+      "precision@k": 0.11540229885057472,
+      "recall@k": 0.34620689655172415,
+      "hit_rate@k": 0.34620689655172415,
+      "success_weighted_precision@k": 0.058850574712643676,
+      "coverage@k": 1.0,
+      "k": 3
+    },
+    "1.0": {
+      "n": 725,
+      "precision@k": 0.10114942528735632,
+      "recall@k": 0.30344827586206896,
+      "hit_rate@k": 0.30344827586206896,
+      "success_weighted_precision@k": 0.05057471264367816,
+      "coverage@k": 1.0,
+      "k": 3
+    }
+  },
+  "recommenders": {
+    "content_based": {
+      "n": 725,
+      "precision@k": 0.175632183908046,
+      "recall@k": 0.526896551724138,
+      "hit_rate@k": 0.526896551724138,
+      "success_weighted_precision@k": 0.0910344827586207,
+      "coverage@k": 1.0,
+      "k": 3
+    },
+    "item_knn_cf": {
+      "n": 725,
+      "precision@k": 0.327816091954023,
+      "recall@k": 0.983448275862069,
+      "hit_rate@k": 0.983448275862069,
+      "success_weighted_precision@k": 0.17839080459770115,
+      "coverage@k": 1.0,
+      "k": 3
+    },
+    "user_knn_cf": {
+      "n": 725,
+      "precision@k": 0.22620689655172413,
+      "recall@k": 0.6786206896551724,
+      "hit_rate@k": 0.6786206896551724,
+      "success_weighted_precision@k": 0.12919540229885057,
+      "coverage@k": 1.0,
+      "k": 3
+    },
+    "popularity_wilson": {
+      "n": 725,
+      "precision@k": 0.02850574712643678,
+      "recall@k": 0.08551724137931034,
+      "hit_rate@k": 0.08551724137931034,
+      "success_weighted_precision@k": 0.020229885057471263,
+      "coverage@k": 0.5714285714285714,
+      "k": 3
+    },
+    "popularity_enrollment": {
+      "n": 725,
+      "precision@k": 0.04459770114942529,
+      "recall@k": 0.13379310344827586,
+      "hit_rate@k": 0.13379310344827586,
+      "success_weighted_precision@k": 0.029885057471264367,
+      "coverage@k": 0.5714285714285714,
+      "k": 3
+    },
+    "random_baseline": {
+      "n": 725,
+      "precision@k": 0.16735632183908045,
+      "recall@k": 0.5020689655172413,
+      "hit_rate@k": 0.5020689655172413,
+      "success_weighted_precision@k": 0.09149425287356322,
+      "coverage@k": 1.0,
+      "k": 3
+    }
+  },
+  "sim_floor": 0.0,
+  "notes": {
+    "holdout_target_dominated_by_CCC": "90% of 2014J holdout targets are module CCC, a new 2014 offering. Wilson-ranked popularity penalises CCC (pass rate 0.48, below the catalog median) so it never enters the top-3 \u2014 hence the low hit rate despite CCC being the modal target. The enrollment-ranked popularity baseline scores highly because CCC is also the largest 2014B+2013 cohort."
+  }
+}

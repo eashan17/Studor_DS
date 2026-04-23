@@ -1,0 +1,26 @@
+{
+  "student_id": 52275,
+  "course": "FFF 2014J",
+  "triggered_at_week": 6,
+  "risk_score": 1.0,
+  "risk_tier": "HIGH",
+  "threshold_at_generation": 0.2,
+  "cohort_base_rate": 0.385,
+  "top_drivers": [
+    {
+      "factor": "Steady but low engagement",
+      "evidence": "Std of weekly score = 1.08 (mean = 7.8/100)"
+    },
+    {
+      "factor": "mean_submission_score_w1_6 (raises risk)",
+      "evidence": "value=38.0"
+    },
+    {
+      "factor": "total_weight_due_w1_6 (raises risk)",
+      "evidence": "value=12.5"
+    }
+  ],
+  "recommended_action": "Advisor outreach within 72h; offer study-plan reset and check for blockers.",
+  "example_case_type": "true_positive",
+  "actual_outcome": "Fail"
+}

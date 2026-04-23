@@ -1,0 +1,26 @@
+{
+  "student_id": 409733,
+  "course": "CCC 2014J",
+  "triggered_at_week": 6,
+  "risk_score": 0.2,
+  "risk_tier": "HIGH",
+  "threshold_at_generation": 0.2,
+  "cohort_base_rate": 0.385,
+  "top_drivers": [
+    {
+      "factor": "mean_submission_score_w1_6 (lowers risk)",
+      "evidence": "value=87.0"
+    },
+    {
+      "factor": "Moderate week-to-week variability",
+      "evidence": "Std of weekly score = 3.90 (mean = 14.6/100)"
+    },
+    {
+      "factor": "Higher prior education level",
+      "evidence": "Level = A Level or Equivalent"
+    }
+  ],
+  "recommended_action": "Advisor outreach within 72h; offer study-plan reset and check for blockers.",
+  "example_case_type": "borderline",
+  "actual_outcome": "Pass"
+}

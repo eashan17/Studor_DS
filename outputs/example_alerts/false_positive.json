@@ -1,0 +1,26 @@
+{
+  "student_id": 226895,
+  "course": "DDD 2014J",
+  "triggered_at_week": 6,
+  "risk_score": 1.0,
+  "risk_tier": "HIGH",
+  "threshold_at_generation": 0.2,
+  "cohort_base_rate": 0.385,
+  "top_drivers": [
+    {
+      "factor": "Steady but low engagement",
+      "evidence": "Std of weekly score = 0.00 (mean = 4.8/100)"
+    },
+    {
+      "factor": "mean_submission_score_w1_6 (raises risk)",
+      "evidence": "value=nan"
+    },
+    {
+      "factor": "total_weight_due_w1_6 (raises risk)",
+      "evidence": "value=15.0"
+    }
+  ],
+  "recommended_action": "Advisor outreach within 72h; offer study-plan reset and check for blockers.",
+  "example_case_type": "false_positive",
+  "actual_outcome": "Pass"
+}
