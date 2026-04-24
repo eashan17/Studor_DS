@@ -118,11 +118,12 @@ def name_archetypes(km, max_week):
     stats_df = pd.DataFrame(cluster_stats)
     # Steady Engager: highest overall mean
     steady = stats_df.loc[stats_df["mean"].idxmax(), "cluster"]
-    # Early Dropout: highest early mean relative to late mean
-    stats_df["decay"] = stats_df["early_mean"] - stats_df["late_mean"]
     remaining = stats_df[stats_df["cluster"] != steady]
-    dropout = remaining.loc[remaining["decay"].idxmax(), "cluster"]
-    # Late Recoverer: the remaining cluster
+    # Early Dropout: lowest late-semester activity — these students are essentially
+    # gone by the course's second half, hence near-zero late_mean
+    dropout = remaining.loc[remaining["late_mean"].idxmin(), "cluster"]
+    # Late Recoverer: the remaining cluster — moderate engagement maintained or
+    # partially recovered in the second half
     recoverer = [c for c in stats_df["cluster"] if c not in (steady, dropout)][0]
 
     names = {int(steady): "Steady Engager", int(dropout): "Early Dropout", int(recoverer): "Late Recoverer"}
