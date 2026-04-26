@@ -288,10 +288,19 @@ def scale_and_score(df, weights):
     train_mask = df["code_presentation"].astype(str).str.endswith(TRAIN_PRES)
     train_df = df[train_mask]
 
-    scaler = MinMaxScaler()
-    scaler.fit(train_df[FEATURE_COLS].fillna(0))
+    # Percentile-cap features (fit on train only) to neutralize extreme outliers
+    # before MinMaxScaling, otherwise weekly_clicks/wow_click_delta tails compress
+    # typical students into a tiny portion of [0,1] and cap engagement_score ~40.
+    lower_q = train_df[FEATURE_COLS].fillna(0).quantile(0.01)
+    upper_q = train_df[FEATURE_COLS].fillna(0).quantile(0.99)
 
-    scaled = scaler.transform(df[FEATURE_COLS].fillna(0))
+    train_clipped = train_df[FEATURE_COLS].fillna(0).clip(lower=lower_q, upper=upper_q, axis=1)
+    df_clipped = df[FEATURE_COLS].fillna(0).clip(lower=lower_q, upper=upper_q, axis=1)
+
+    scaler = MinMaxScaler()
+    scaler.fit(train_clipped)
+
+    scaled = scaler.transform(df_clipped)
     scaled_cols = [f"scaled_{f}" for f in FEATURE_COLS]
     df[scaled_cols] = scaled
 
